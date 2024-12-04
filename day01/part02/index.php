@@ -23,16 +23,16 @@
 
     $answer = 0;
 
-    sort( $data["left"] );
-    sort( $data["right"] );
+    function arrayCount($array, $q) {
+        $countValues = array_count_values($array);
+        $count = isset($countValues[$q]) ? $countValues[$q] : 0;
+        return $count;
+    }
 
-    if(count($data["left"]) !== count($data["right"])) echo "Not an equal amount of numbers";
-    else {
-        for($i = 0; $i < count($data["right"]); $i++) {
-            $toBeSorted = [$data["left"][$i], $data["right"][$i]];
-            sort($toBeSorted);
-            $answer += $toBeSorted[1] - $toBeSorted[0];
-        }
+    foreach($data["left"] as $item) {
+        $times = arrayCount($data["right"], $item);
+        $result = $item * $times;
+        $answer += $result;
     }
 
     echo $answer;
