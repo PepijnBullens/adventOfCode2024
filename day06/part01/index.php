@@ -46,7 +46,6 @@
     [$grid, $startPos] = getgrid();
     $guardX = $startPos[0];
     $guardY = $startPos[1];
-    $exitted = false;
     $currentDirection = 0;
 
     $directions = [
